@@ -110,5 +110,5 @@ def test_fizzbuzz__sequence_divide_by_zero(zero_modulo):
 
 @pytest.mark.parametrize("start, limit", [(10, 1)])
 def test_fizzbuzz_sequence_wrong_value(start, limit):
-    with pytest.raises(ValueError):
-        next(fizzbuzz(limit, start))
+    """Incorrect params generate empty result"""
+    assert list(fizzbuzz(limit, start)) == []
