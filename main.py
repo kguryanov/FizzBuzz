@@ -1,4 +1,5 @@
-from fizzbuzz import print_fizzbuzz, fizzbuzz
+from fizzbuzz import fizzbuzz
 
 if __name__ == '__main__':
-    print_fizzbuzz(fizzbuzz(50), sep="\n")
+    for idx, value in enumerate(fizzbuzz(50), start=1):
+        print(f"{idx} : {value}")

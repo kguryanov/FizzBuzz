@@ -47,10 +47,4 @@ def fizzbuzz(limit: int, start: int = 1, modulos: dict[int, str] = None) -> Gene
     if start > limit:
         raise ValueError("Argument start is larger that the range limit.")
 
-    yield from (get_fizzbuzz(value, modulos) for value in range(start, limit + 1))
-
-
-def print_fizzbuzz(fizzes_n_buzzes: Iterable, sep=" ") -> None:
-    print(*fizzes_n_buzzes, sep=sep)
-
-
+    yield from ((value, get_fizzbuzz(value, modulos)) for value in range(start, limit + 1))

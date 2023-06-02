@@ -1,41 +1,49 @@
 import pytest as pytest
 
-from fizzbuzz import DEFAULT_FIZBUZZ, get_fizzbuzz, fizzbuzz, print_fizzbuzz
+from fizzbuzz import DEFAULT_FIZBUZZ, get_fizzbuzz, fizzbuzz
 
-EXPECTED_10 = (10, [1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz"])
+EXPECTED_10 = (
+10, list(enumerate([1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz"], start=1)))
 EXPECTED_15 = (15,
-               [1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz", 11, "Fizz", 13, 14,
-                "FizzBuzz"])
+               list(enumerate(
+                   [1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz", 11, "Fizz", 13, 14,
+                    "FizzBuzz"], start=1)))
 EXPECTED_50 = (50,
-               [1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz",
-                "Buzz", 11, "Fizz", 13, 14, "FizzBuzz", 16, 17,
-                "Fizz",
-                19, "Buzz", "Fizz", 22, 23, "Fizz", "Buzz",
-                26, "Fizz",
-                28, 29, "FizzBuzz", 31, 32, "Fizz", 34, "Buzz",
-                "Fizz", 37, 38,
-                "Fizz", "Buzz", 41, "Fizz", 43, 44,
-                "FizzBuzz",
-                46, 47, "Fizz", 49, "Buzz"])
+               list(enumerate([1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz",
+                               "Buzz", 11, "Fizz", 13, 14, "FizzBuzz", 16, 17,
+                               "Fizz",
+                               19, "Buzz", "Fizz", 22, 23, "Fizz", "Buzz",
+                               26, "Fizz",
+                               28, 29, "FizzBuzz", 31, 32, "Fizz", 34, "Buzz",
+                               "Fizz", 37, 38,
+                               "Fizz", "Buzz", 41, "Fizz", 43, 44,
+                               "FizzBuzz",
+                               46, 47, "Fizz", 49, "Buzz"], start=1)))
 
-EXPECTED_START_1_1 = (1, 1, [1])
-EXPECTED_START_1_10 = (1, *EXPECTED_10)
+EXPECTED_START_1_1 = (1, 1, [(1, 1)])
+EXPECTED_START_1_10 = (1, 10,
+                       list(enumerate([1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz"],
+                                      start=1)))
 EXPECTED_START_5_10 = (5, 10,
-                       ["Buzz", "Fizz", 7, 8, "Fizz", "Buzz"])
+                       list(enumerate(["Buzz", "Fizz", 7, 8, "Fizz", "Buzz"], start=5)))
 EXPECTED_START_40_50 = (40, 50,
-                        ["Buzz", 41, "Fizz", 43, 44, "FizzBuzz", 46, 47, "Fizz", 49, "Buzz"])
+                        list(enumerate(
+                            ["Buzz", 41, "Fizz", 43, 44, "FizzBuzz", 46, 47, "Fizz", 49, "Buzz"],
+                            start=40)))
 
 DEFAULT_MODULOS_0_15 = (0, 15,
                         {3: "Fizz", 5: "Buzz"},
-                        ["FizzBuzz", 1, 2, "Fizz", 4, "Buzz", "Fizz",
-                         7, 8, "Fizz", "Buzz", 11, "Fizz", 13, 14, "FizzBuzz"])
+                        list(enumerate(["FizzBuzz", 1, 2, "Fizz", 4, "Buzz", "Fizz",
+                                        7, 8, "Fizz", "Buzz", 11, "Fizz", 13, 14, "FizzBuzz"])))
 
 TWO_THREE_FIVE_MODULOS_0_15 = (0, 15,
                                {2: "Double", 3: "Triple", 5: "Quintuple"},
-                               ["DoubleTripleQuintuple", 1, "Double",
-                                "Triple", "Double", "Quintuple", "DoubleTriple", 7, "Double",
-                                "Triple", "DoubleQuintuple", 11, "DoubleTriple", 13, "Double",
-                                "TripleQuintuple"])
+                               list(enumerate(["DoubleTripleQuintuple", 1, "Double",
+                                               "Triple", "Double", "Quintuple", "DoubleTriple", 7,
+                                               "Double",
+                                               "Triple", "DoubleQuintuple", 11, "DoubleTriple", 13,
+                                               "Double",
+                                               "TripleQuintuple"])))
 
 
 def get_test_modulos():
@@ -45,7 +53,6 @@ def get_test_modulos():
 @pytest.fixture()
 def default_modulo():
     return DEFAULT_FIZBUZZ
-
 
 
 @pytest.mark.parametrize("test_input, expected", {0: "FizzBuzz",
@@ -94,11 +101,3 @@ def test_fizzbuzz_wrong_type(limit):
 def test_fizzbuzz_wrong_type(start, limit):
     with pytest.raises(ValueError):
         next(fizzbuzz(limit, start))
-
-
-@pytest.mark.parametrize("test_sequence, sep", [([1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz"], ' '),
-                                                ([1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz"], '\n')])
-def test_fizzbuzz_print_default(test_sequence, sep, capfd):
-    print_fizzbuzz(test_sequence, sep)
-    out, err = capfd.readouterr()
-    assert out.strip() == sep.join(map(str, test_sequence))
