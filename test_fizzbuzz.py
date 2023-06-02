@@ -3,7 +3,7 @@ import pytest as pytest
 from fizzbuzz import DEFAULT_FIZBUZZ, get_fizzbuzz, fizzbuzz
 
 EXPECTED_10 = (
-10, list(enumerate([1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz"], start=1)))
+    10, list(enumerate([1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz"], start=1)))
 EXPECTED_15 = (15,
                list(enumerate(
                    [1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz", 11, "Fizz", 13, 14,
@@ -55,6 +55,11 @@ def default_modulo():
     return DEFAULT_FIZBUZZ
 
 
+@pytest.fixture()
+def zero_modulo():
+    return {0: "Dummy"}
+
+
 @pytest.mark.parametrize("test_input, expected", {0: "FizzBuzz",
                                                   1: 1,
                                                   3: "Fizz",
@@ -64,6 +69,23 @@ def default_modulo():
                                                   50: "Buzz"}.items())
 def test_fizzbuzz_default_modulos(test_input, expected, default_modulo):
     assert get_fizzbuzz(test_input, default_modulo) == expected
+
+
+@pytest.mark.parametrize("start, limit", [(10, 1)])
+def test_fizzbuzz_wrong_type(start, limit):
+    with pytest.raises(ValueError):
+        next(fizzbuzz(limit, start))
+
+
+@pytest.mark.parametrize("limit", ['0', "10", "abrvalg", (), {}, []])
+def test_fizzbuzz_wrong_type(limit, default_modulo):
+    with pytest.raises(TypeError):
+        get_fizzbuzz(limit, default_modulo)
+
+
+def test_fizzbuzz_divide_by_zero(zero_modulo):
+    with pytest.raises(ValueError):
+        get_fizzbuzz(10, zero_modulo)
 
 
 @pytest.mark.parametrize("limit, expected", [EXPECTED_10, EXPECTED_15, EXPECTED_50])
@@ -86,18 +108,11 @@ def test_fizzbuzz_sequence_custom_modules(start, limit, modulo, expected):
 
 
 @pytest.mark.parametrize("limit", ['0', "10", "abrvalg", (), {}, []])
-def test_fizzbuzz_wrong_type(limit, default_modulo):
-    with pytest.raises(TypeError):
-        get_fizzbuzz(limit, default_modulo)
-
-
-@pytest.mark.parametrize("limit", ['0', "10", "abrvalg", (), {}, []])
-def test_fizzbuzz_wrong_type(limit):
+def test_fizzbuzz_sequence_wrong_type(limit):
     with pytest.raises(TypeError):
         next(fizzbuzz(limit))
 
 
-@pytest.mark.parametrize("start, limit", [(10, 1)])
-def test_fizzbuzz_wrong_type(start, limit):
+def test_fizzbuzz__sequence_divide_by_zero(zero_modulo):
     with pytest.raises(ValueError):
-        next(fizzbuzz(limit, start))
+        next(fizzbuzz(10, modulos=zero_modulo))

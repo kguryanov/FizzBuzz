@@ -29,6 +29,12 @@ def get_fizzbuzz(target: int, modulos: dict[int: str]) -> str | int:
     if not isinstance(target, numbers.Number):
         raise TypeError(
             f"Attribute is not a number. Supplied value: <{target = } : {type(target) = }>")
+
+    if any(map(lambda x: x==0, modulos)):
+        raise ValueError(
+            f"Dividers can not be zero. Supplied value: <{modulos = }>")
+
+
     result = ''.join(value for key, value in modulos.items() if target % key == 0)
     return result if result else target
 
