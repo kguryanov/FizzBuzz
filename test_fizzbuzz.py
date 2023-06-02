@@ -26,7 +26,7 @@ EXPECTED_START_40_50 = (40, 50,
                                         "FizzBuzz", 46, 47, "Fizz", 49, "Buzz"],
                                        start=40)))
 DEFAULT_MODULOS_0_15 = (0, 15,
-                        {3: "Fizz", 5: "Buzz"},
+                        DEFAULT_FIZBUZZ,
                         list(enumerate(["FizzBuzz", 1, 2, "Fizz", 4, "Buzz", "Fizz",
                                         7, 8, "Fizz", "Buzz", 11, "Fizz", 13, 14, "FizzBuzz"])))
 
