@@ -70,13 +70,6 @@ def zero_modulo():
 def test_fizzbuzz_default_modulos(test_input, expected, default_modulo):
     assert get_fizzbuzz(test_input, default_modulo) == expected
 
-
-@pytest.mark.parametrize("start, limit", [(10, 1)])
-def test_fizzbuzz_wrong_type(start, limit):
-    with pytest.raises(ValueError):
-        next(fizzbuzz(limit, start))
-
-
 @pytest.mark.parametrize("limit", ['0', "10", "abrvalg", (), {}, []])
 def test_fizzbuzz_wrong_type(limit, default_modulo):
     with pytest.raises(TypeError):
@@ -116,3 +109,9 @@ def test_fizzbuzz_sequence_wrong_type(limit):
 def test_fizzbuzz__sequence_divide_by_zero(zero_modulo):
     with pytest.raises(ValueError):
         next(fizzbuzz(10, modulos=zero_modulo))
+
+
+@pytest.mark.parametrize("start, limit", [(10, 1)])
+def test_fizzbuzz_sequence_wrong_value(start, limit):
+    with pytest.raises(ValueError):
+        next(fizzbuzz(limit, start))
