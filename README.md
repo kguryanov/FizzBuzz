@@ -20,6 +20,7 @@ Please provide the code, any workings and the expected output
 <code>$>python -m pip install -r requirements.txt</code>
 ### Run tests with coverage:
 <code>$>python -m coverage run -m pytest</code>
+
 <code>$>python -m coverage html</code>
 
 Html report shall be available in `htmlcov` folder. 
