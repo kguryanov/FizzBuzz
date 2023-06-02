@@ -18,7 +18,7 @@ Please provide the code, any workings and the expected output
 ## Tests with coverage (external packages)
 ### Install coverage ():
 <code>$>python -m pip install -r requirements.txt</code>
-### R tests with coverage:
+### Run tests with coverage:
 <code>$>python -m coverage run -m pytest</code>
 <code>$>python -m coverage html</code>
 
