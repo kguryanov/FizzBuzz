@@ -57,6 +57,10 @@ def zero_modulo():
                                                   3: "Fizz",
                                                   5: "Buzz",
                                                   15: "FizzBuzz",
+                                                  0b101111: 47,
+                                                  0x48: "Fizz",
+                                                  0o226: "FizzBuzz",
+                                                  14.0: 14.0,
                                                   30: "FizzBuzz",
                                                   50: "Buzz"}.items())
 def test_fizzbuzz_default_modulos(test_input, expected, default_modulo):
