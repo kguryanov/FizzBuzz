@@ -1,4 +1,4 @@
-![Status](https://github.com/kguryanov/FizzBuzz/actions/workflows/flow.yml/badge.svg)
+![Status](https://github.com/kguryanov/FizzBuzz/actions/workflows/flow.yml/badge.svg?branch=master)
 
 ## Question:
 Write a Python program that iterates the integers from 1 to 50. For multiples of
