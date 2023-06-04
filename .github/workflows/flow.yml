@@ -33,7 +33,7 @@ jobs:
       - name: Test with pytest
         run: |          
           coverage run -m pytest -v
-          coverage html
+          coverage html --omit="test*"
           rm -rf htmlcov/.gitignore
       - name: Publish coverage report to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
