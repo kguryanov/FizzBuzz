@@ -34,6 +34,6 @@ jobs:
           coverage run -m pytest -v
           coverage html
       - name: Publish coverage report to GitHub Pages
-        uses: amesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: htmlcov
