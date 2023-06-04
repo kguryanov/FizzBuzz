@@ -139,4 +139,4 @@ def test_fizzbuzz_sequence_wrong_value(start, limit):
                                                         (10, 5, EXPECTED_DRAW_10_5)])
 def test_fizzbuzz_draw(limit, page_size, expected):
     """Incorrect params generate empty result"""
-    assert list(draw(fizzbuzz(limit), page_size)) == expected
+    assert list(draw(fizzbuzz(limit), page_size)) == None
