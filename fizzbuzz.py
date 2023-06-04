@@ -12,7 +12,7 @@ import numbers
 from itertools import zip_longest
 from typing import Generator, Iterable
 
-DEFAULT_DRAW_PADDING = 13
+DEFAULT_DRAW_PADDING = 16
 DEFAULT_FIZBUZZ = {
     3: "Fizz",
     5: "Buzz"
