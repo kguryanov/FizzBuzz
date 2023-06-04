@@ -51,8 +51,12 @@ EXPECTED_DRAW_10_1 = list(
                                                   '7 => 7', '8 => 8', '9 => Fizz',
                                                   '10 => Buzz']))
 
-EXPECTED_DRAW_10_5 = ['1 => 1       2 => 2       3 => Fizz    4 => 4       5 => Buzz    ',
-                      '6 => Fizz    7 => 7       8 => 8       9 => Fizz    10 => Buzz   ']
+EXPECTED_DRAW_10_5 = [
+    "".join(map(lambda x: x.ljust(DEFAULT_DRAW_PADDING), ['1 => 1', '2 => 2', '3 => Fizz',
+                                                          '4 => 4', '5 => Buzz'])),
+    "".join(map(lambda x: x.ljust(DEFAULT_DRAW_PADDING), ['6 => Fizz',
+                                                          '7 => 7', '8 => 8', '9 => Fizz',
+                                                          '10 => Buzz']))]
 
 
 def get_test_modulos():
@@ -136,4 +140,3 @@ def test_fizzbuzz_sequence_wrong_value(start, limit):
 def test_fizzbuzz_draw(limit, page_size, expected):
     """Incorrect params generate empty result"""
     assert list(draw(fizzbuzz(limit), page_size)) == expected
-
