@@ -32,4 +32,8 @@ jobs:
       - name: Test with pytest
         run: |          
           coverage run -m pytest -v
-          coverage report
+          coverage html
+      - name: Publish coverage report to GitHub Pages
+        uses: amesIves/github-pages-deploy-action@v4
+        with:
+          folder: htmlcov
