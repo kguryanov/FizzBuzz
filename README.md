@@ -11,6 +11,9 @@ Please provide the code, any workings and the expected output
 ## Usage 
 <code>$> python main.py</code>
 
+![image](https://github.com/kguryanov/FizzBuzz/assets/3843209/39582b31-0f87-48c1-8bc1-1ea8ff4affb6)
+
+
 ## Run tests (requires pytest to be installed)
 ### Install pytest:
 <code>$> python -m pip install -r requirements.txt</code>
