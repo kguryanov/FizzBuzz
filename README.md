@@ -1,12 +1,5 @@
 ![Status](https://github.com/kguryanov/FizzBuzz/actions/workflows/flow.yml/badge.svg?branch=break_tests)
 
-{r, echo=FALSE, eval=TRUE, results="asis"}
-shield <- paste0("[![Build Status](",
-                 system("git rev-parse --abbrev-ref HEAD", intern = TRUE),
-                 ")](https://travis-ci.org/RevolutionAnalytics/miniCRAN)")
-cat(shield)
-
-
 ## Question:
 Write a Python program that iterates the integers from 1 to 50. For multiples of
 three print "Fizz" instead of the number and for multiples of five print "Buzz". For
