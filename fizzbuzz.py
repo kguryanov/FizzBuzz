@@ -9,8 +9,10 @@ Please provide the code, any workings and the expected output
 """
 
 import numbers
-from typing import Generator
+from itertools import zip_longest
+from typing import Generator, Iterable
 
+DEFAULT_DRAW_PADDING = 13
 DEFAULT_FIZBUZZ = {
     3: "Fizz",
     5: "Buzz"
@@ -52,3 +54,8 @@ def fizzbuzz(limit: int, start: int = 1, modulos: dict[int, str] = None) -> Gene
 
     yield from ((value, get_fizzbuzz(value, modulos))
                 for value in range(start, limit + 1))
+
+
+def draw(output: Iterable, page_size: int = 1, padding = DEFAULT_DRAW_PADDING) -> Generator:
+    printable = (f"{value} => {fizzbuzz}" for value, fizzbuzz in output)
+    return ("".join(map(str, map(lambda x: x.ljust(padding), filter(None, line)))) for line in zip_longest(*[iter(printable)] * page_size))
