@@ -21,7 +21,7 @@ Please provide the code, any workings and the expected output
 <code>$> python -m pytest</code>
 
 ## Tests with coverage (external packages)
-### Install coverage ():
+### Install coverage:
 <code>$>python -m pip install -r requirements.txt</code>
 ### Run tests with coverage:
 <code>$>python -m coverage run -m pytest</code>

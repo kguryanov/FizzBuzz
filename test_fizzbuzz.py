@@ -1,4 +1,8 @@
-import pytest as pytest
+"""
+Test for module fizzbuzz
+"""
+
+import pytest
 
 from fizzbuzz import DEFAULT_FIZBUZZ, get_fizzbuzz, fizzbuzz, draw, DEFAULT_DRAW_PADDING
 
