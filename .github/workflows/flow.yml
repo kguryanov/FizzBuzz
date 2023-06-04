@@ -8,14 +8,15 @@ on:
     branches:
       - '**'
   workflow_dispatch:
-
+permissions:
+  contents: write
 
 jobs:
   tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.10", "3.11"]
+        python-version: ["3.11"]
 
     steps:
       - uses: actions/checkout@v3
@@ -32,4 +33,9 @@ jobs:
       - name: Test with pytest
         run: |          
           coverage run -m pytest -v
-          coverage report
+          coverage html --omit="test*"
+          rm -rf htmlcov/.gitignore
+      - name: Publish coverage report to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: htmlcov
