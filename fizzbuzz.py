@@ -8,8 +8,8 @@ Instructions:
 Please provide the code, any workings and the expected output
 """
 
-from typing import Generator, Iterable
 import numbers
+from typing import Generator
 
 DEFAULT_FIZBUZZ = {
     3: "Fizz",
@@ -28,7 +28,8 @@ def get_fizzbuzz(target: int, modulos: dict[int: str]) -> str | int:
         """
     if not isinstance(target, numbers.Number):
         raise TypeError(
-            f"Attribute is not a number. Supplied value: <{target = } : {type(target) = }>")
+            f"Attribute is not a number. Supplied value: "
+            f"<{target = } : {type(target) = }>")
 
     if any(map(lambda x: x == 0, modulos)):
         raise ValueError(
@@ -49,4 +50,5 @@ def fizzbuzz(limit: int, start: int = 1, modulos: dict[int, str] = None) -> Gene
     if modulos is None:
         modulos = DEFAULT_FIZBUZZ
 
-    yield from ((value, get_fizzbuzz(value, modulos)) for value in range(start, limit + 1))
+    yield from ((value, get_fizzbuzz(value, modulos))
+                for value in range(start, limit + 1))

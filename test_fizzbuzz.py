@@ -2,22 +2,28 @@ import pytest as pytest
 
 from fizzbuzz import DEFAULT_FIZBUZZ, get_fizzbuzz, fizzbuzz
 
-EXPECTED_10 = (10, list(enumerate([1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz"],
+EXPECTED_10 = (10, list(enumerate([1, 2, "Fizz", 4, "Buzz", "Fizz",
+                                   7, 8, "Fizz", "Buzz"],
                                   start=1)))
-EXPECTED_15 = (15, list(enumerate([1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8,
-                                   "Fizz", "Buzz", 11, "Fizz", 13, 14, "FizzBuzz"],
+EXPECTED_15 = (15, list(enumerate([1, 2, "Fizz", 4, "Buzz",
+                                   "Fizz", 7, 8,
+                                   "Fizz", "Buzz", 11,
+                                   "Fizz", 13, 14, "FizzBuzz"],
                                   start=1)))
 
-EXPECTED_50 = (50, list(enumerate([1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz",
-                                   "Buzz", 11, "Fizz", 13, 14, "FizzBuzz", 16, 17,
-                                   "Fizz", 19, "Buzz", "Fizz", 22, 23, "Fizz", "Buzz",
-                                   26, "Fizz", 28, 29, "FizzBuzz", 31, 32, "Fizz", 34, "Buzz",
-                                   "Fizz", 37, 38, "Fizz", "Buzz", 41, "Fizz", 43, 44,
-                                   "FizzBuzz", 46, 47, "Fizz", 49, "Buzz"], start=1)))
+EXPECTED_50 = (50, list(enumerate([1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8,
+                                   "Fizz","Buzz", 11, "Fizz", 13, 14,
+                                   "FizzBuzz", 16, 17, "Fizz", 19, "Buzz",
+                                   "Fizz", 22, 23, "Fizz", "Buzz", 26, "Fizz",
+                                   28, 29, "FizzBuzz", 31, 32, "Fizz", 34,
+                                   "Buzz", "Fizz", 37, 38, "Fizz", "Buzz",
+                                   41, "Fizz", 43, 44,"FizzBuzz", 46, 47,
+                                   "Fizz", 49, "Buzz"], start=1)))
 
 EXPECTED_START_1_1 = (1, 1, [(1, 1)])
 EXPECTED_START_1_10 = (1, 10,
-                       list(enumerate([1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz"],
+                       list(enumerate([1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8,
+                                       "Fizz", "Buzz"],
                                       start=1)))
 EXPECTED_START_5_10 = (5, 10,
                        list(enumerate(["Buzz", "Fizz", 7, 8, "Fizz", "Buzz"], start=5)))
@@ -28,14 +34,16 @@ EXPECTED_START_40_50 = (40, 50,
 DEFAULT_MODULOS_0_15 = (0, 15,
                         DEFAULT_FIZBUZZ,
                         list(enumerate(["FizzBuzz", 1, 2, "Fizz", 4, "Buzz", "Fizz",
-                                        7, 8, "Fizz", "Buzz", 11, "Fizz", 13, 14, "FizzBuzz"])))
+                                        7, 8, "Fizz", "Buzz", 11, "Fizz", 13,
+                                        14, "FizzBuzz"])))
 
 TWO_THREE_FIVE_MODULOS_0_15 = (0, 15,
                                {2: "Double", 3: "Triple", 5: "Quintuple"},
                                list(enumerate(["DoubleTripleQuintuple", 1, "Double",
-                                               "Triple", "Double", "Quintuple", "DoubleTriple", 7,
-                                               "Double", "Triple", "DoubleQuintuple", 11,
-                                               "DoubleTriple", 13, "Double", "TripleQuintuple"])))
+                                               "Triple", "Double", "Quintuple",
+                                               "DoubleTriple", 7,"Double", "Triple",
+                                               "DoubleQuintuple", 11, "DoubleTriple",
+                                               13, "Double", "TripleQuintuple"])))
 
 
 def get_test_modulos():
