@@ -22,7 +22,8 @@ EXPECTED_50 = (50, list(enumerate([1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8,
 
 EXPECTED_START_1_1 = (1, 1, [(1, 1)])
 EXPECTED_START_1_10 = (1, 10,
-                       list(enumerate([1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz"],
+                       list(enumerate([1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8,
+                                       "Fizz", "Buzz"],
                                       start=1)))
 EXPECTED_START_5_10 = (5, 10,
                        list(enumerate(["Buzz", "Fizz", 7, 8, "Fizz", "Buzz"], start=5)))
@@ -33,14 +34,16 @@ EXPECTED_START_40_50 = (40, 50,
 DEFAULT_MODULOS_0_15 = (0, 15,
                         DEFAULT_FIZBUZZ,
                         list(enumerate(["FizzBuzz", 1, 2, "Fizz", 4, "Buzz", "Fizz",
-                                        7, 8, "Fizz", "Buzz", 11, "Fizz", 13, 14, "FizzBuzz"])))
+                                        7, 8, "Fizz", "Buzz", 11, "Fizz", 13,
+                                        14, "FizzBuzz"])))
 
 TWO_THREE_FIVE_MODULOS_0_15 = (0, 15,
                                {2: "Double", 3: "Triple", 5: "Quintuple"},
                                list(enumerate(["DoubleTripleQuintuple", 1, "Double",
-                                               "Triple", "Double", "Quintuple", "DoubleTriple", 7,
-                                               "Double", "Triple", "DoubleQuintuple", 11,
-                                               "DoubleTriple", 13, "Double", "TripleQuintuple"])))
+                                               "Triple", "Double", "Quintuple",
+                                               "DoubleTriple", 7,"Double", "Triple",
+                                               "DoubleQuintuple", 11, "DoubleTriple",
+                                               13, "Double", "TripleQuintuple"])))
 
 
 def get_test_modulos():
