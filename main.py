@@ -1,5 +1,4 @@
-from fizzbuzz import fizzbuzz
+from fizzbuzz import fizzbuzz, draw
 
 if __name__ == '__main__':
-    for idx, value in fizzbuzz(50):
-        print(f"{idx} : {value}")
+    print(*draw(fizzbuzz(10), 5), sep="\n")
