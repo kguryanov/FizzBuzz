@@ -19,7 +19,7 @@ DEFAULT_FIZBUZZ = {
 }
 
 
-def get_fizzbuzz(target: int, modulos: dict[int: str]) -> str | int:
+def get_value(target: int, modulos: dict[int: str]) -> str | int:
     """Atomic function, which returns either original value,
         or accumulated str depending on the divisibility of the value with key
         :param target: target integer to test
@@ -41,7 +41,7 @@ def get_fizzbuzz(target: int, modulos: dict[int: str]) -> str | int:
     return result if result else target
 
 
-def fizzbuzz(limit: int, start: int = 1, modulos: dict[int, str] = None) -> Generator:
+def gen_fizzbuzz(limit: int, start: int = 1, modulos: dict[int, str] = None) -> Generator:
     """generate the sequence of values according to the FizzBuzz puzzle rules
         Will iterate from start value to limit value, inclusive.
         :param limit: upper limit, inclusive to iterate through
@@ -52,10 +52,15 @@ def fizzbuzz(limit: int, start: int = 1, modulos: dict[int, str] = None) -> Gene
     if modulos is None:
         modulos = DEFAULT_FIZBUZZ
 
-    yield from ((value, get_fizzbuzz(value, modulos))
+    yield from ((value, get_value(value, modulos))
                 for value in range(start, limit + 1))
 
 
-def draw(output: Iterable, page_size: int = 1, padding = DEFAULT_DRAW_PADDING) -> Generator:
+def draw(output: Iterable, page_size: int = 1, padding = DEFAULT_DRAW_PADDING) -> str:
+    # Convert output to printable values
     printable = (f"{value} => {fizzbuzz}" for value, fizzbuzz in output)
-    return ("".join(map(str, map(lambda x: x.ljust(padding), filter(None, line)))) for line in zip_longest(*[iter(printable)] * page_size))
+    # Chunk the output in lines, with each line containing no more than <page_size> elements
+    chunked = (filter(None, line) for line in zip_longest(*[iter(printable)] * page_size))
+    # return formatted string for output
+    return "\n".join("".join(map(lambda x: x.ljust(padding), line)) for line in chunked)
+

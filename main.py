@@ -1,4 +1,4 @@
-from fizzbuzz import fizzbuzz, draw
+from fizzbuzz import gen_fizzbuzz, draw
 
 if __name__ == '__main__':
-    print(*draw(fizzbuzz(50), 10), sep="\n")
+    print(draw(gen_fizzbuzz(50), 1))
