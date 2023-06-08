@@ -4,8 +4,10 @@ Test for module fizzbuzz
 
 import pytest
 
-from .constants import *
-from fizzbuzz import get_value, gen_fizzbuzz, draw
+from fizzbuzz import get_value, gen_fizzbuzz, draw, DEFAULT_FIZBUZZ
+from tests.constants import GET_VALUE_TEST_PARAM_DEFAULT, GEN_FIZZBUZZ_TEST_PARAMS_LIMIT, \
+    GEN_FIZZBUZZ_TEST_PARAMS_START_LIMIT, GEN_FIZZBUZZ_TEST_PARAMS_START_LIMIT_MODULOS, \
+    DRAW_TEST_PARAMS
 
 
 @pytest.fixture()
