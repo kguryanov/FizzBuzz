@@ -1,23 +1,13 @@
 """
-Test for module fizzbuzz
+Tests for module fizzbuzz
 """
 
 import pytest
 
-from fizzbuzz import get_value, gen_fizzbuzz, draw, DEFAULT_FIZBUZZ
+from fizzbuzz.fizzbuzz import get_value, gen_fizzbuzz, draw
 from tests.constants import GET_VALUE_TEST_PARAM_DEFAULT, GEN_FIZZBUZZ_TEST_PARAMS_LIMIT, \
     GEN_FIZZBUZZ_TEST_PARAMS_START_LIMIT, GEN_FIZZBUZZ_TEST_PARAMS_START_LIMIT_MODULOS, \
     DRAW_TEST_PARAMS
-
-
-@pytest.fixture()
-def default_modulo():
-    return DEFAULT_FIZBUZZ
-
-
-@pytest.fixture()
-def zero_modulo():
-    return {0: "Dummy"}
 
 
 @pytest.mark.parametrize("test_input, expected", GET_VALUE_TEST_PARAM_DEFAULT)
@@ -71,5 +61,4 @@ def test_gen_fizzbuzz_wrong_value(start, limit):
 
 @pytest.mark.parametrize("limit, page_size, expected", DRAW_TEST_PARAMS)
 def test_draw(limit, page_size, expected):
-    """Incorrect params generate empty result"""
     assert draw(gen_fizzbuzz(limit), page_size) == "\n".join(expected)
