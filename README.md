@@ -16,17 +16,9 @@ Please provide the code, any workings and the expected output
 
 ## Run tests (requires pytest to be installed)
 ### Install pytest:
-<code>$> python -m pip install -r requirements.txt</code>
+<code>$> python -m pip install -r requirements_dev.txt</code>
 ### Run tests
 <code>$> python -m pytest</code>
-
-## Tests with coverage (external packages)
-### Install coverage:
-<code>$>python -m pip install -r requirements.txt</code>
-### Run tests with coverage:
-<code>$>python -m coverage run -m pytest</code>
-
-<code>$>python -m coverage html</code>
 
 Html report shall be available in `htmlcov` folder. 
 
