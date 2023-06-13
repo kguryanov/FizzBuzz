@@ -1,4 +1,4 @@
-from fizzbuzz import DEFAULT_DRAW_PADDING, DEFAULT_FIZBUZZ
+from src.fizzbuzz.fizzbuzz import DEFAULT_DRAW_PADDING, DEFAULT_FIZBUZZ
 
 # reusable constants
 GEN_FIZZBUZZ_EXPECTED_0_0_DICT = {0: 'FizzBuzz'}
