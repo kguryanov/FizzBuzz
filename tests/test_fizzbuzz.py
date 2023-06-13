@@ -4,7 +4,7 @@ Tests for module fizzbuzz
 
 import pytest
 
-from fizzbuzz.fizzbuzz import get_value, gen_fizzbuzz, draw, DEFAULT_FIZBUZZ
+from fizzbuzz.fizzbuzz import get_value, gen_fizzbuzz, draw
 from tests.constants import GET_VALUE_TEST_PARAM_DEFAULT, GEN_FIZZBUZZ_TEST_PARAMS_LIMIT, \
     GEN_FIZZBUZZ_TEST_PARAMS_START_LIMIT, GEN_FIZZBUZZ_TEST_PARAMS_START_LIMIT_MODULOS, \
     DRAW_TEST_PARAMS
