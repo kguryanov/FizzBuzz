@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 line-length = 100
 
 [tool.pytest.ini_options]
-addopts = "--cov=fizzbuzz --cov-report html"
+addopts = "--cov=fizzbuzz --cov-report html --cov-report term"
 testpaths = [
     "tests",
 ]
